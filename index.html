@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ledgerline — Learn accounting by doing accounting</title>
+<meta name="description" content="An interactive accounting practice environment. Analyze transactions, record journal entries, and find out exactly where your reasoning went wrong. No account required." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="wrap nav-row">
+    <a href="#top" class="brand">
+      <span class="brand-mark">DR</span>
+      Ledgerline
+    </a>
+
+    <nav class="nav-links">
+      <a href="#preview">Practice</a>
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#teachers">For Teachers</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#" class="nav-signin">Sign in</a>
+      <a href="#preview" class="nav-cta">Get started</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#preview">Practice</a>
+    <a href="#how">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#teachers">For Teachers</a>
+    <a href="#" class="nav-signin">Sign in</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Accounting isn't learned by memorizing answers. It's learned by doing.</h1>
+        <p class="lead">
+          Analyze real transactions, record journal entries, post them to the ledger, and find out exactly
+          where your reasoning breaks — not just whether your final number was right.
+        </p>
+        <div class="cta-row">
+          <a href="#preview" class="btn-primary">Start practicing</a>
+          <a href="#how" class="btn-secondary">See how it works</a>
+        </div>
+        <div class="no-account"><span class="dot">●</span>No account required to start.</div>
+      </div>
+
+      <div class="ledger-card" id="heroMockup">
+        <div class="ledger-head">
+          <span class="biz">Adaeze Traders</span>
+          <span class="date">Txn · 04.15</span>
+        </div>
+        <div class="ledger-body">
+          <p class="txn-text">"Purchased inventory for ₦150,000 on credit from Okoye Distributors."</p>
+          <div class="ledger-q">Which accounts are affected?</div>
+          <div class="ledger-row header">
+            <div>Account</div><div class="dr">Debit</div><div class="cr">Credit</div>
+          </div>
+          <div class="ledger-row" id="rowInventory">
+            <div class="acct">Inventory</div>
+            <div class="dr" id="drInventory">—</div>
+            <div class="cr">—</div>
+          </div>
+          <div class="ledger-row" id="rowPayables">
+            <div class="acct">Payables — Okoye</div>
+            <div class="dr">—</div>
+            <div class="cr" id="crPayables">—</div>
+          </div>
+          <div class="ledger-status" id="heroStatus" hidden>
+            <span>Balanced. Debits = Credits.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Textbook questions aren't enough.</h2>
+        <p>Solving question after question tells you almost nothing about how you actually think through a transaction.</p>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-col old">
+          <h3>Solve another question</h3>
+          <ul class="compare-list">
+            <li><span class="mark">×</span>Check the final answer</li>
+            <li><span class="mark">×</span>Move on to the next question</li>
+            <li><span class="mark">×</span>Repeat the same mistake next time</li>
+            <li><span class="mark">×</span>Never see where your workings went wrong</li>
+          </ul>
+        </div>
+        <div class="compare-col new">
+          <h3>Practice the process</h3>
+          <ul class="compare-list">
+            <li><span class="mark">✓</span>Analyze the transaction</li>
+            <li><span class="mark">✓</span>Record it, step by step</li>
+            <li><span class="mark">✓</span>Make mistakes safely</li>
+            <li><span class="mark">✓</span>Understand exactly why, then try again</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Four steps, every time.</h2>
+        <p>The same practice loop used by working accountants, compressed into something you can repeat in minutes.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <h3>Analyze</h3>
+          <p>Read the transaction and work out what actually happened in the business.</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h3>Record</h3>
+          <p>Choose the accounts affected and enter the debit and credit yourself.</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h3>Get feedback</h3>
+          <p>See precisely where your reasoning went wrong — not just a right or wrong mark.</p>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <h3>Master it</h3>
+          <p>Retry the same transaction, or a harder one, until it's second nature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT PREVIEW -->
+  <section id="preview">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>This is what practicing actually looks like.</h2>
+        <p>A real transaction from a fictional business. You decide what's affected — the platform tells you why you're right or wrong.</p>
+      </div>
+      <div class="preview-shell">
+        <div class="ledger-card">
+          <div class="ledger-head">
+            <span class="biz">ABC Stores</span>
+            <span class="date">Txn · 04.15</span>
+          </div>
+          <div class="ledger-body">
+            <p class="txn-text">"Purchased inventory for ₦150,000 on credit from XYZ Ltd."</p>
+            <div class="ledger-q">Which accounts are affected?</div>
+            <div class="preview-options" id="previewOptions">
+              <button class="opt-btn" data-correct="true">Inventory</button>
+              <button class="opt-btn" data-correct="true">Payables</button>
+              <button class="opt-btn" data-correct="false">Cash</button>
+              <button class="opt-btn" data-correct="false">Capital</button>
+            </div>
+            <p class="preview-hint" id="previewHint">Tap the accounts this transaction affects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Built around doing, not reading.</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Interactive practice</h3>
+          <p>Actually perform accounting tasks — analyze, record, post — instead of reading worked examples.</p>
+        </div>
+        <div class="feature">
+          <h3>Mistake diagnosis</h3>
+          <p>Find out exactly where your workings went wrong, not just that the total was off.</p>
+        </div>
+        <div class="feature">
+          <h3>Realistic scenarios</h3>
+          <p>Practice on fictional businesses with transactions that behave like real ones.</p>
+        </div>
+        <div class="feature">
+          <h3>Guided, not spoon-fed</h3>
+          <p>Get a nudge in the right direction before you get the answer.</p>
+        </div>
+        <div class="feature">
+          <h3>Help when you're stuck</h3>
+          <p>A quick explanation of the concept, exactly when you need it.</p>
+        </div>
+        <div class="feature">
+          <h3>Progress that means something</h3>
+          <p>See which topics you've actually built competence in, not just a score.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DIFFERENT -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Why this is different.</h2>
+      </div>
+      <div class="flow-block">
+        <div class="flow-label">Traditional learning</div>
+        <div class="flow-old">
+          <span>Question</span><span class="flow-arrow">→</span>
+          <span>Answer</span><span class="flow-arrow">→</span>
+          <span>Next question</span>
+        </div>
+      </div>
+      <div class="flow-block">
+        <div class="flow-label">Ledgerline</div>
+        <div class="flow-new">
+          <span>Scenario</span><span class="flow-arrow">→</span>
+          <span>Think</span><span class="flow-arrow">→</span>
+          <span>Record</span><span class="flow-arrow">→</span>
+          <span>Make a mistake</span><span class="flow-arrow">→</span>
+          <span>Understand</span><span class="flow-arrow">→</span>
+          <span>Retry</span><span class="flow-arrow">→</span>
+          <span>Master</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE TOPICS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Where this is headed.</h2>
+        <p>We're building topic by topic. Here's the full scope of what you'll eventually be able to practice.</p>
+      </div>
+      <div class="topic-chips">
+        <span class="chip">Double entry</span>
+        <span class="chip">Journals</span>
+        <span class="chip">Ledgers</span>
+        <span class="chip">Trial balance</span>
+        <span class="chip">Bank reconciliation</span>
+        <span class="chip">Inventory</span>
+        <span class="chip">Depreciation</span>
+        <span class="chip">Financial statements</span>
+        <span class="chip">Cost accounting</span>
+        <span class="chip">Management accounting</span>
+        <span class="chip">Tax</span>
+        <span class="chip">Auditing</span>
+        <span class="chip">Forensic accounting</span>
+      </div>
+      <p class="topic-note">Not everything here is live yet — the practice environment is being built one accounting topic at a time.</p>
+    </div>
+  </section>
+
+  <!-- TEACHERS -->
+  <section id="teachers">
+    <div class="wrap teacher-grid">
+      <div>
+        <span class="tag-vision">Coming to Ledgerline</span>
+        <h2 class="teacher-h2">See what your class actually struggles with.</h2>
+        <p class="teacher-copy">
+          Teachers will be able to create classes, assign realistic scenarios, and see where students are
+          genuinely getting stuck — not just their scores.
+        </p>
+      </div>
+      <div class="teacher-card">
+        <div class="th">
+          <span class="course">ACC 401</span>
+          <span class="n">84 students</span>
+        </div>
+        <div class="weak-row">
+          <span class="label">Adjustments</span>
+          <div class="weak-bar"><div style="width:72%"></div></div>
+          <span class="pct">72%</span>
+        </div>
+        <div class="weak-row">
+          <span class="label">Trial balance</span>
+          <div class="weak-bar"><div style="width:61%"></div></div>
+          <span class="pct">61%</span>
+        </div>
+        <div class="weak-row">
+          <span class="label">Depreciation</span>
+          <div class="weak-bar"><div style="width:48%"></div></div>
+          <span class="pct">48%</span>
+        </div>
+        <div class="weak-row">
+          <span class="label">Bank reconciliation</span>
+          <div class="weak-bar"><div style="width:43%"></div></div>
+          <span class="pct">43%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>Stop just solving accounting questions. Start practicing accounting.</h2>
+      <div class="cta-row">
+        <a href="#preview" class="btn-primary">Start practicing</a>
+      </div>
+      <div class="no-account"><span class="dot">●</span>No account required.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <span class="brand-mark">DR</span>
+          Ledgerline
+        </div>
+        <p class="footer-desc">An interactive accounting practice environment for students who want to build real competence, not just get answers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#preview">Practice</a>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#teachers">Teachers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ledgerline. Built in Nigeria.</span>
+      <span>Practice environment — not a question bank.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
