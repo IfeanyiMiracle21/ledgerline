@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ledgerline — Learn accounting by doing accounting</title>
-<meta name="description" content="An interactive accounting practice environment. Analyze transactions, record journal entries, and find out exactly where your reasoning went wrong. No account required." />
+<title>Foundry — Run a business. Get diagnosed on every decision.</title>
+<meta name="description" content="Foundry drops you into running a real business — pricing, stock, cashflow, bookkeeping — and diagnoses exactly where your reasoning breaks on every decision. No account required." />
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 <body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <header class="nav" id="top">
   <div class="wrap nav-row">
     <a href="#top" class="brand">
-      <span class="brand-mark">DR</span>
-      Ledgerline
+      <span class="brand-mark">FD</span>
+      Foundry
     </a>
 
     <nav class="nav-links">
-      <a href="#preview">Practice</a>
+      <a href="#preview">Play</a>
       <a href="#how">How it works</a>
-      <a href="#features">Features</a>
-      <a href="#teachers">For Teachers</a>
+      <a href="#systems">Systems</a>
+      <a href="#institutions">For Institutions</a>
     </nav>
 
     <div class="nav-actions">
@@ -34,10 +37,10 @@
   </div>
 
   <nav class="mobile-menu" id="mobileMenu">
-    <a href="#preview">Practice</a>
+    <a href="#preview">Play</a>
     <a href="#how">How it works</a>
-    <a href="#features">Features</a>
-    <a href="#teachers">For Teachers</a>
+    <a href="#systems">Systems</a>
+    <a href="#institutions">For Institutions</a>
     <a href="#" class="nav-signin">Sign in</a>
   </nav>
 </header>
@@ -47,42 +50,43 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap hero-grid">
-      <div>
-        <h1>Accounting isn't learned by memorizing answers. It's learned by doing.</h1>
+      <div data-aos="fade-right" data-aos-duration="700">
+        <h1>Run a business. Get diagnosed on every decision.</h1>
         <p class="lead">
-          Analyze real transactions, record journal entries, post them to the ledger, and find out exactly
-          where your reasoning breaks — not just whether your final number was right.
+          Foundry drops you into a real small business — set prices, manage stock, keep the books, watch
+          cashflow — and tells you exactly where your reasoning broke, on every single decision. Not just
+          whether you made money.
         </p>
         <div class="cta-row">
-          <a href="#preview" class="btn-primary">Start practicing</a>
+          <a href="#preview" class="btn-primary">Start your business</a>
           <a href="#how" class="btn-secondary">See how it works</a>
         </div>
         <div class="no-account"><span class="dot">●</span>No account required to start.</div>
       </div>
 
-      <div class="ledger-card" id="heroMockup">
+      <div class="ledger-card tilt-card" id="heroMockup" data-aos="fade-left" data-aos-duration="700" data-aos-delay="150">
         <div class="ledger-head">
           <span class="biz">Adaeze Traders</span>
-          <span class="date">Txn · 04.15</span>
+          <span class="date">Day 12</span>
         </div>
         <div class="ledger-body">
-          <p class="txn-text">"Purchased inventory for ₦150,000 on credit from Okoye Distributors."</p>
-          <div class="ledger-q">Which accounts are affected?</div>
+          <p class="txn-text">You have 40 units of rice left and demand has been rising for a week.</p>
+          <div class="ledger-q">What do you do?</div>
           <div class="ledger-row header">
-            <div>Account</div><div class="dr">Debit</div><div class="cr">Credit</div>
+            <div>Decision</div><div class="dr">You did</div><div class="cr">Engine says</div>
           </div>
-          <div class="ledger-row" id="rowInventory">
-            <div class="acct">Inventory</div>
-            <div class="dr" id="drInventory">—</div>
+          <div class="ledger-row" id="rowPrice">
+            <div class="acct">Raise price 12%</div>
+            <div class="dr" id="drPrice">—</div>
             <div class="cr">—</div>
           </div>
-          <div class="ledger-row" id="rowPayables">
-            <div class="acct">Payables — Okoye</div>
+          <div class="ledger-row" id="rowRestock">
+            <div class="acct">Reorder stock</div>
             <div class="dr">—</div>
-            <div class="cr" id="crPayables">—</div>
+            <div class="cr" id="crRestock">—</div>
           </div>
           <div class="ledger-status" id="heroStatus" hidden>
-            <span>Balanced. Debits = Credits.</span>
+            <span>Good call on price. But you'll stock out in 3 days — reorder now.</span>
           </div>
         </div>
       </div>
@@ -92,27 +96,27 @@
   <!-- PROBLEM -->
   <section>
     <div class="wrap">
-      <div class="section-head">
-        <h2>Textbook questions aren't enough.</h2>
-        <p>Solving question after question tells you almost nothing about how you actually think through a transaction.</p>
+      <div class="section-head" data-aos="fade-up">
+        <h2>Most business simulators just track your final score.</h2>
+        <p>You end the round with a number — profit up or down — and no idea which of your ten decisions actually caused it.</p>
       </div>
       <div class="compare-grid">
-        <div class="compare-col old">
-          <h3>Solve another question</h3>
+        <div class="compare-col old" data-aos="fade-up" data-aos-delay="0">
+          <h3>A typical simulator</h3>
           <ul class="compare-list">
-            <li><span class="mark">×</span>Check the final answer</li>
-            <li><span class="mark">×</span>Move on to the next question</li>
-            <li><span class="mark">×</span>Repeat the same mistake next time</li>
-            <li><span class="mark">×</span>Never see where your workings went wrong</li>
+            <li><span class="mark">×</span>Make a decision</li>
+            <li><span class="mark">×</span>Watch the score change</li>
+            <li><span class="mark">×</span>Guess which choice caused it</li>
+            <li><span class="mark">×</span>Repeat the same misjudgment next round</li>
           </ul>
         </div>
-        <div class="compare-col new">
-          <h3>Practice the process</h3>
+        <div class="compare-col new" data-aos="fade-up" data-aos-delay="120">
+          <h3>Foundry</h3>
           <ul class="compare-list">
-            <li><span class="mark">✓</span>Analyze the transaction</li>
-            <li><span class="mark">✓</span>Record it, step by step</li>
-            <li><span class="mark">✓</span>Make mistakes safely</li>
-            <li><span class="mark">✓</span>Understand exactly why, then try again</li>
+            <li><span class="mark">✓</span>Make a decision</li>
+            <li><span class="mark">✓</span>See it diagnosed, system by system</li>
+            <li><span class="mark">✓</span>Understand exactly what reasoning was off</li>
+            <li><span class="mark">✓</span>Carry it into the next decision</li>
           </ul>
         </div>
       </div>
@@ -122,30 +126,34 @@
   <!-- HOW IT WORKS -->
   <section id="how">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Four steps, every time.</h2>
-        <p>The same practice loop used by working accountants, compressed into something you can repeat in minutes.</p>
+      <div class="section-head" data-aos="fade-up">
+        <h2>Four steps, every decision.</h2>
+        <p>Underneath the game is a deterministic engine — it doesn't just grade your outcome, it grades your reasoning.</p>
       </div>
       <div class="steps">
-        <div class="step">
+        <div class="step" data-aos="fade-up" data-aos-delay="0">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
           <div class="num">01</div>
-          <h3>Analyze</h3>
-          <p>Read the transaction and work out what actually happened in the business.</p>
+          <h3>Decide</h3>
+          <p>Face a real situation your business is in — pricing, stock, cash, or the books.</p>
         </div>
-        <div class="step">
+        <div class="step" data-aos="fade-up" data-aos-delay="80">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
           <div class="num">02</div>
-          <h3>Record</h3>
-          <p>Choose the accounts affected and enter the debit and credit yourself.</p>
+          <h3>Act</h3>
+          <p>Make the call and commit to it, the way you would running the business for real.</p>
         </div>
-        <div class="step">
+        <div class="step" data-aos="fade-up" data-aos-delay="160">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6" stroke-linecap="round"/></svg></div>
           <div class="num">03</div>
-          <h3>Get feedback</h3>
-          <p>See precisely where your reasoning went wrong — not just a right or wrong mark.</p>
+          <h3>Get diagnosed</h3>
+          <p>See exactly which system your decision affected, and where the reasoning broke down — if it did.</p>
         </div>
-        <div class="step">
+        <div class="step" data-aos="fade-up" data-aos-delay="240">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="num">04</div>
-          <h3>Master it</h3>
-          <p>Retry the same transaction, or a harder one, until it's second nature.</p>
+          <h3>Carry it forward</h3>
+          <p>Your next decision is shaped by this one. Mistakes compound — and so does understanding.</p>
         </div>
       </div>
     </div>
@@ -154,157 +162,161 @@
   <!-- PRODUCT PREVIEW -->
   <section id="preview">
     <div class="wrap">
-      <div class="section-head">
-        <h2>This is what practicing actually looks like.</h2>
-        <p>A real transaction from a fictional business. You decide what's affected — the platform tells you why you're right or wrong.</p>
+      <div class="section-head" data-aos="fade-up">
+        <h2>This is what a day at Foundry looks like.</h2>
+        <p>A real situation from a fictional business. Pick your move — the engine diagnoses it before you move to the next day.</p>
       </div>
       <div class="preview-shell">
-        <div class="ledger-card">
+        <div class="ledger-card tilt-card" data-aos="zoom-in" data-aos-duration="600">
           <div class="ledger-head">
-            <span class="biz">ABC Stores</span>
-            <span class="date">Txn · 04.15</span>
+            <span class="biz">Okoye Distributors</span>
+            <span class="date">Day 4</span>
           </div>
           <div class="ledger-body">
-            <p class="txn-text">"Purchased inventory for ₦150,000 on credit from XYZ Ltd."</p>
-            <div class="ledger-q">Which accounts are affected?</div>
+            <p class="txn-text">"A customer wants 200 units on credit. Your cash is tight this week."</p>
+            <div class="ledger-q">What's the right move?</div>
             <div class="preview-options" id="previewOptions">
-              <button class="opt-btn" data-correct="true">Inventory</button>
-              <button class="opt-btn" data-correct="true">Payables</button>
-              <button class="opt-btn" data-correct="false">Cash</button>
-              <button class="opt-btn" data-correct="false">Capital</button>
+              <button class="opt-btn" data-correct="true">Offer partial credit, partial cash</button>
+              <button class="opt-btn" data-correct="false">Give full credit, no terms</button>
+              <button class="opt-btn" data-correct="false">Turn down the sale</button>
+              <button class="opt-btn" data-correct="false">Full cash only, no discussion</button>
             </div>
-            <p class="preview-hint" id="previewHint">Tap the accounts this transaction affects.</p>
+            <p class="preview-hint" id="previewHint">Think about what this does to your cash position this week, not just this sale.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features">
+  <!-- SYSTEMS -->
+  <section id="systems">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Built around doing, not reading.</h2>
+      <div class="section-head" data-aos="fade-up">
+        <h2>One business. Every system connected.</h2>
+        <p>Your decisions don't happen in isolation — a pricing call affects cashflow, which affects what you can restock, which shows up in your books. Foundry diagnoses all of it.</p>
       </div>
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>Interactive practice</h3>
-          <p>Actually perform accounting tasks — analyze, record, post — instead of reading worked examples.</p>
-        </div>
-        <div class="feature">
-          <h3>Mistake diagnosis</h3>
-          <p>Find out exactly where your workings went wrong, not just that the total was off.</p>
-        </div>
-        <div class="feature">
-          <h3>Realistic scenarios</h3>
-          <p>Practice on fictional businesses with transactions that behave like real ones.</p>
-        </div>
-        <div class="feature">
-          <h3>Guided, not spoon-fed</h3>
-          <p>Get a nudge in the right direction before you get the answer.</p>
-        </div>
-        <div class="feature">
-          <h3>Help when you're stuck</h3>
-          <p>A quick explanation of the concept, exactly when you need it.</p>
-        </div>
-        <div class="feature">
-          <h3>Progress that means something</h3>
-          <p>See which topics you've actually built competence in, not just a score.</p>
-        </div>
+      <div class="topic-chips" data-aos="fade-up" data-aos-delay="100">
+        <span class="chip">Pricing</span>
+        <span class="chip">Inventory</span>
+        <span class="chip">Cashflow</span>
+        <span class="chip">Bookkeeping</span>
+        <span class="chip">Credit &amp; collections</span>
+        <span class="chip">Cost control</span>
+        <span class="chip">Payroll</span>
+        <span class="chip">Financial statements</span>
+        <span class="chip">Tax</span>
+        <span class="chip">Budgeting</span>
+        <span class="chip">Basic marketing spend</span>
+        <span class="chip">Loans &amp; interest</span>
       </div>
+      <p class="topic-note">Not every system is live yet — we're building this one connected piece at a time, starting with bookkeeping and cashflow.</p>
     </div>
   </section>
 
   <!-- WHY DIFFERENT -->
   <section>
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-aos="fade-up">
         <h2>Why this is different.</h2>
       </div>
-      <div class="flow-block">
-        <div class="flow-label">Traditional learning</div>
+      <div class="flow-block" data-aos="fade-up">
+        <div class="flow-label">Score-based simulators</div>
         <div class="flow-old">
-          <span>Question</span><span class="flow-arrow">→</span>
-          <span>Answer</span><span class="flow-arrow">→</span>
-          <span>Next question</span>
+          <span>Decide</span><span class="flow-arrow">→</span>
+          <span>Score changes</span><span class="flow-arrow">→</span>
+          <span>Next round</span>
         </div>
       </div>
-      <div class="flow-block">
-        <div class="flow-label">Ledgerline</div>
+      <div class="flow-block" data-aos="fade-up" data-aos-delay="100">
+        <div class="flow-label">Foundry</div>
         <div class="flow-new">
-          <span>Scenario</span><span class="flow-arrow">→</span>
-          <span>Think</span><span class="flow-arrow">→</span>
-          <span>Record</span><span class="flow-arrow">→</span>
-          <span>Make a mistake</span><span class="flow-arrow">→</span>
+          <span>Situation</span><span class="flow-arrow">→</span>
+          <span>Decide</span><span class="flow-arrow">→</span>
+          <span>Act</span><span class="flow-arrow">→</span>
+          <span>Get diagnosed</span><span class="flow-arrow">→</span>
           <span>Understand</span><span class="flow-arrow">→</span>
-          <span>Retry</span><span class="flow-arrow">→</span>
-          <span>Master</span>
+          <span>Carry it forward</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FUTURE TOPICS -->
+  <!-- FEATURES -->
   <section>
     <div class="wrap">
-      <div class="section-head">
-        <h2>Where this is headed.</h2>
-        <p>We're building topic by topic. Here's the full scope of what you'll eventually be able to practice.</p>
+      <div class="section-head" data-aos="fade-up">
+        <h2>Built on a real diagnosis engine.</h2>
       </div>
-      <div class="topic-chips">
-        <span class="chip">Double entry</span>
-        <span class="chip">Journals</span>
-        <span class="chip">Ledgers</span>
-        <span class="chip">Trial balance</span>
-        <span class="chip">Bank reconciliation</span>
-        <span class="chip">Inventory</span>
-        <span class="chip">Depreciation</span>
-        <span class="chip">Financial statements</span>
-        <span class="chip">Cost accounting</span>
-        <span class="chip">Management accounting</span>
-        <span class="chip">Tax</span>
-        <span class="chip">Auditing</span>
-        <span class="chip">Forensic accounting</span>
+      <div class="feature-grid">
+        <div class="feature" data-aos="fade-up" data-aos-delay="0">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+          <h3>Decision diagnosis</h3>
+          <p>Every choice is checked against what a sound decision actually looks like — not just what happened after.</p>
+        </div>
+        <div class="feature" data-aos="fade-up" data-aos-delay="60">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.9 7.6 10.5 16M16.1 7.6 13.5 16M8.4 6h7.2"/></svg></div>
+          <h3>Connected systems</h3>
+          <p>Pricing, stock, cash, and books all affect each other, the way they do in a real business.</p>
+        </div>
+        <div class="feature" data-aos="fade-up" data-aos-delay="120">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20a8 8 0 1 1 16 0" /><path d="M12 20 16 9" stroke-linecap="round"/><circle cx="12" cy="20" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+          <h3>Realistic pressure</h3>
+          <p>Tight cash weeks, demand spikes, and late-paying customers — situations that force real trade-offs.</p>
+        </div>
+        <div class="feature" data-aos="fade-up" data-aos-delay="0">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v8l9 5 9-5V8" /></svg></div>
+          <h3>Guided, not spoon-fed</h3>
+          <p>Get a nudge in the right direction before you get the answer.</p>
+        </div>
+        <div class="feature" data-aos="fade-up" data-aos-delay="60">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v10H8l-4 4V5z" stroke-linejoin="round"/></svg></div>
+          <h3>Help when you're stuck</h3>
+          <p>A quick explanation of the concept behind a decision, exactly when you need it.</p>
+        </div>
+        <div class="feature" data-aos="fade-up" data-aos-delay="120">
+          <div class="icon-pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19h16M7 19v-6M12 19V8M17 19v-3" stroke-linecap="round"/></svg></div>
+          <h3>Progress that means something</h3>
+          <p>See which systems you've actually built sound judgment in, not just how the business ended up.</p>
+        </div>
       </div>
-      <p class="topic-note">Not everything here is live yet — the practice environment is being built one accounting topic at a time.</p>
     </div>
   </section>
 
-  <!-- TEACHERS -->
-  <section id="teachers">
+  <!-- INSTITUTIONS -->
+  <section id="institutions">
     <div class="wrap teacher-grid">
-      <div>
-        <span class="tag-vision">Coming to Ledgerline</span>
-        <h2 class="teacher-h2">See what your class actually struggles with.</h2>
+      <div data-aos="fade-right">
+        <span class="tag-vision">Coming to Foundry</span>
+        <h2 class="teacher-h2">See exactly where a class's judgment breaks down.</h2>
         <p class="teacher-copy">
-          Teachers will be able to create classes, assign realistic scenarios, and see where students are
-          genuinely getting stuck — not just their scores.
+          Educators and institutions will be able to assign a business, run a whole class through the same
+          situations, and see precisely which decisions students get wrong and why — not just their scores.
         </p>
       </div>
-      <div class="teacher-card">
+      <div class="teacher-card" id="teacherCard" data-aos="fade-left">
         <div class="th">
-          <span class="course">ACC 401</span>
+          <span class="course">ACC 401 — Foundry Cohort</span>
           <span class="n">84 students</span>
         </div>
         <div class="weak-row">
-          <span class="label">Adjustments</span>
-          <div class="weak-bar"><div style="width:72%"></div></div>
-          <span class="pct">72%</span>
+          <span class="label">Cash timing</span>
+          <div class="weak-bar"><div data-target="72" style="width:0%"></div></div>
+          <span class="pct" data-target="72">0%</span>
         </div>
         <div class="weak-row">
-          <span class="label">Trial balance</span>
-          <div class="weak-bar"><div style="width:61%"></div></div>
-          <span class="pct">61%</span>
+          <span class="label">Credit terms</span>
+          <div class="weak-bar"><div data-target="61" style="width:0%"></div></div>
+          <span class="pct" data-target="61">0%</span>
         </div>
         <div class="weak-row">
-          <span class="label">Depreciation</span>
-          <div class="weak-bar"><div style="width:48%"></div></div>
-          <span class="pct">48%</span>
+          <span class="label">Recording entries</span>
+          <div class="weak-bar"><div data-target="48" style="width:0%"></div></div>
+          <span class="pct" data-target="48">0%</span>
         </div>
         <div class="weak-row">
-          <span class="label">Bank reconciliation</span>
-          <div class="weak-bar"><div style="width:43%"></div></div>
-          <span class="pct">43%</span>
+          <span class="label">Pricing under pressure</span>
+          <div class="weak-bar"><div data-target="43" style="width:0%"></div></div>
+          <span class="pct" data-target="43">0%</span>
         </div>
       </div>
     </div>
@@ -312,10 +324,10 @@
 
   <!-- FINAL CTA -->
   <section class="final-cta">
-    <div class="wrap">
-      <h2>Stop just solving accounting questions. Start practicing accounting.</h2>
+    <div class="wrap" data-aos="zoom-in" data-aos-duration="600">
+      <h2>Stop guessing what went right. Start seeing what went wrong.</h2>
       <div class="cta-row">
-        <a href="#preview" class="btn-primary">Start practicing</a>
+        <a href="#preview" class="btn-primary">Start your business</a>
       </div>
       <div class="no-account"><span class="dot">●</span>No account required.</div>
     </div>
@@ -328,21 +340,21 @@
     <div class="footer-grid">
       <div>
         <div class="brand">
-          <span class="brand-mark">DR</span>
-          Ledgerline
+          <span class="brand-mark">FD</span>
+          Foundry
         </div>
-        <p class="footer-desc">An interactive accounting practice environment for students who want to build real competence, not just get answers.</p>
+        <p class="footer-desc">A business simulation with a real diagnosis engine underneath — for people who want to understand their decisions, not just their score.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
-        <a href="#preview">Practice</a>
-        <a href="#features">Features</a>
+        <a href="#preview">Play</a>
+        <a href="#systems">Systems</a>
         <a href="#how">How it works</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="#">About</a>
-        <a href="#teachers">Teachers</a>
+        <a href="#institutions">Institutions</a>
         <a href="#">Contact</a>
       </div>
       <div class="footer-col">
@@ -352,12 +364,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Ledgerline. Built in Nigeria.</span>
-      <span>Practice environment — not a question bank.</span>
+      <span>© 2026 Foundry. Built in Nigeria.</span>
+      <span>A business simulation, diagnosed step by step.</span>
     </div>
   </div>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
